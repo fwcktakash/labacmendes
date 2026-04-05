@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- ESSENCIAL PRA CELULAR -->
+<!-- RESPONSIVO -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Rastreamento de Amostra</title>
@@ -17,6 +17,7 @@ body {
     margin: 0;
 }
 
+/* CONTAINER */
 .container {
     width: 90%;
     max-width: 900px;
@@ -32,7 +33,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .header img {
@@ -44,22 +44,25 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    flex-wrap: wrap;
     gap: 10px;
 }
 
-/* STATUS */
+/* STATUS (AGORA SEM QUEBRAR NO CELULAR) */
 .status {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
     margin-top: 25px;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
+}
+
+.status div {
+    flex: 1;
+    min-width: 0;
 }
 
 .status i {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 8px;
     color: #444;
 }
@@ -89,32 +92,17 @@ ul {
     color: #444;
 }
 
-/* 📱 AJUSTES PARA CELULAR */
-@media (max-width: 600px) {
+/* PERMITIR SCROLL */
+html, body {
+    height: auto;
+    overflow-y: auto;
+}
 
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header img {
-        margin-top: 10px;
-    }
-
-    .info-top {
-        flex-direction: column;
-    }
-
-    .status {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
-
+/* FORÇAR LEVE ROLAGEM */
+body::after {
+    content: "";
+    display: block;
+    height: 80px;
 }
 </style>
 </head>
