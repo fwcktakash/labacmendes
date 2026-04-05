@@ -1,47 +1,77 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Rastreamento de Amostra</title>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ADICIONE ESTA LINHA NO HEAD -->
 
 <style>
 body {
     font-family: Arial, sans-serif;
     background: #f5f6f7;
     margin: 0;
+    padding: 10px; /* Espaço nas bordas no mobile */
 }
 
 .container {
-    width: 85%;
-    margin: 30px auto;
+    width: 95%; /* Quase toda a tela no mobile */
+    max-width: 800px; /* Não deixa ficar gigante no PC */
+    margin: 10px auto;
     background: #fff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 6px;
     border: 1px solid #e0e0e0;
+    box-sizing: border-box; /* Garante que o padding não quebre a largura */
 }
 
 .header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* No mobile, um embaixo do outro */
     align-items: center;
+    text-align: center;
+    gap: 15px;
 }
 
 .header img {
-    width: 170px;
-}
-
-h2 {
-    font-weight: normal;
-    color: #333;
+    width: 150px;
+    order: -1; /* Coloca a logo acima do título no mobile */
 }
 
 .info-top {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Empilha as informações no mobile */
     margin-top: 20px;
-    color: #333;
+    gap: 10px;
+}
+
+.info-top p {
+    margin: 5px 0;
+}
+
+.status {
+    display: flex;
+    flex-direction: column; /* Ícones um embaixo do outro no mobile */
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* --- Ajustes para telas maiores (Computador) --- */
+@media (min-width: 768px) {
+    .container {
+        width: 85%;
+        margin: 30px auto;
+        padding: 30px;
+    }
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .header img {
+        order: 1; /* Logo na direita no PC */
+    }
+    .info-top {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .status {
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
 
 .progress {
@@ -58,13 +88,6 @@ h2 {
     background: #4CAF50;
 }
 
-.status {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    margin-top: 25px;
-}
-
 .status i {
     font-size: 26px;
     margin-bottom: 8px;
@@ -75,80 +98,7 @@ h2 {
     margin-top: 35px;
 }
 
-h3 {
-    color: #333;
-}
-
-ul {
-    padding-left: 18px;
-    color: #444;
-}
+h2 { font-weight: normal; color: #333; margin: 0; }
+h3 { color: #333; }
+ul { padding-left: 18px; color: #444; }
 </style>
-</head>
-
-<body>
-
-<div class="container">
-
-    <div class="header">
-        <h2>Rastreamento de Amostra</h2>
-        <img src="logo.png">
-    </div>
-
-    <div class="info-top">
-        <div>
-            <p><strong>Nome:</strong> Wesley Kawan de Souza Martins Teixeira</p>
-            <p><strong>CPF:</strong> 232.806.737-98</p>
-        </div>
-
-        <div>
-            <p><strong>Código da Amostra:</strong> H001296249</p>
-        </div>
-    </div>
-
-    <div class="status">
-
-        <div>
-            <i class="fas fa-truck"></i><br>
-            Recebida em<br>
-            <strong>02/04/2026</strong>
-        </div>
-
-        <div>
-            <i class="fas fa-flask"></i><br>
-            Análise concluída
-        </div>
-
-        <div>
-            <i class="fas fa-file-alt"></i><br>
-            Laudo emitido em<br>
-            <strong>06/04/2026</strong>
-        </div>
-
-    </div>
-
-    <div class="progress">
-        <div class="progress-bar"></div>
-    </div>
-
-    <div class="section">
-        <h3>Liberação de Resultados:</h3>
-        <ul>
-            <li><strong>Negativo:</strong> até 2 dias úteis após chegada da amostra.</li>
-            <li><strong>Não-negativo:</strong> prazo adicional de até 6 dias úteis.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h3>Canais de Atendimento:</h3>
-        <ul>
-            <li>4007-2365 Capitais</li>
-            <li>0800 008 2626 Demais regiões</li>
-            <li>contato@laboratorio.com</li>
-        </ul>
-    </div>
-
-</div>
-
-</body>
-</html>
